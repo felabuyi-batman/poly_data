@@ -1,0 +1,42 @@
+[
+  {
+    "wallet": "0x4d8b7e3aab4c8d2e1f5a6b7c8d9e0f1a2b3c4d5e",
+    "trades": 247,
+    "wins": 184,
+    "win_rate": 0.7449,
+    "total_pnl": 42180.55,
+    "markets_traded": 89
+  },
+  {
+    "wallet": "0x9f3a2b1c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a",
+    "trades": 312,
+    "wins": 219,
+    "win_rate": 0.7019,
+    "total_pnl": 31405.20,
+    "markets_traded": 142
+  },
+  {
+    "wallet": "0x1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b",
+    "trades": 156,
+    "wins": 121,
+    "win_rate": 0.7756,
+    "total_pnl": 28940.10,
+    "markets_traded": 64
+  },
+  {
+    "wallet": "0x7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d",
+    "trades": 198,
+    "wins": 142,
+    "win_rate": 0.7172,
+    "total_pnl": 19820.75,
+    "markets_traded": 77
+  },
+  {
+    "wallet": "0x5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f",
+    "trades": 104,
+    "wins": 78,
+    "win_rate": 0.7500,
+    "total_pnl": 12450.30,
+    "markets_traded": 45
+  }
+]

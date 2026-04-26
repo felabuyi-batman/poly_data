@@ -1,0 +1,54 @@
+[
+  {
+    "market_id": "0xa1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
+    "question": "Will Bitcoin close above $100,000 on April 30, 2026?",
+    "yes_token": "12345678901234567890",
+    "no_token": "98765432109876543210",
+    "category": "crypto",
+    "midpoint": 0.62,
+    "decision": {
+      "action": "BUY_YES",
+      "confidence": 0.81,
+      "p_win": 0.81,
+      "price_at_decision": 0.62,
+      "agreeing_checks": [
+        "reverts toward mean=0.71",
+        "news favorable",
+        "3 target wallets long"
+      ]
+    },
+    "size_usd": 42.50,
+    "checks": [
+      {"signal": "BUY_YES", "confidence": 0.78, "note": "reverts toward mean=0.71"},
+      {"signal": "BUY_YES", "confidence": 0.85, "note": "news favorable: ETF inflows continue"},
+      {"signal": "BUY_YES", "confidence": 0.80, "note": "3 target wallets long"},
+      {"signal": "NEUTRAL", "confidence": 0.5,  "note": "disposition: balanced"}
+    ]
+  },
+  {
+    "market_id": "0xb2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1",
+    "question": "Will the Federal Reserve cut rates at the May 2026 FOMC meeting?",
+    "yes_token": "11111111111111111111",
+    "no_token": "22222222222222222222",
+    "category": "economics",
+    "midpoint": 0.41,
+    "decision": {
+      "action": "BUY_YES",
+      "confidence": 0.77,
+      "p_win": 0.77,
+      "price_at_decision": 0.41,
+      "agreeing_checks": [
+        "reverts toward mean=0.55",
+        "news favorable",
+        "disposition: dovish tilt"
+      ]
+    },
+    "size_usd": 38.00,
+    "checks": [
+      {"signal": "BUY_YES", "confidence": 0.72, "note": "reverts toward mean=0.55"},
+      {"signal": "BUY_YES", "confidence": 0.80, "note": "news favorable: cooling CPI print"},
+      {"signal": "NEUTRAL", "confidence": 0.5,  "note": "no whale activity"},
+      {"signal": "BUY_YES", "confidence": 0.79, "note": "disposition: dovish tilt"}
+    ]
+  }
+]

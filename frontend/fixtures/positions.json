@@ -1,0 +1,142 @@
+[
+  {
+    "market_id": "0xa1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
+    "question": "Will Bitcoin close above $100,000 on April 30, 2026?",
+    "side": "BUY_YES",
+    "entry_price": 0.62,
+    "target_price": 0.92,
+    "size_usd": 42.50,
+    "votes": [
+      {"action": "BUY_YES", "confidence": 0.78, "agent": "arbitrage"},
+      {"action": "BUY_YES", "confidence": 0.81, "agent": "convergence"},
+      {"action": "BUY_YES", "confidence": 0.80, "agent": "whale_copy"}
+    ],
+    "order": {
+      "client_id": "abc123def4567890",
+      "token": "12345678901234567890",
+      "price": 0.62,
+      "size_usd": 42.50,
+      "size_shares": 68.55,
+      "side": "BUY",
+      "status": "live-cli"
+    },
+    "status": "OPEN",
+    "opened_at": "2026-04-23T14:22:00+00:00",
+    "exit_reason": null,
+    "exit_price": null,
+    "closed_at": null,
+    "realized_pnl": null
+  },
+  {
+    "market_id": "0xb2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1",
+    "question": "Will the Federal Reserve cut rates at the May 2026 FOMC meeting?",
+    "side": "BUY_YES",
+    "entry_price": 0.41,
+    "target_price": 0.71,
+    "size_usd": 38.00,
+    "votes": [
+      {"action": "BUY_YES", "confidence": 0.77, "agent": "arbitrage"},
+      {"action": "BUY_YES", "confidence": 0.77, "agent": "convergence"},
+      {"action": "HOLD",    "confidence": 0.0,  "agent": "whale_copy"}
+    ],
+    "order": {
+      "client_id": "def456abc7890abc",
+      "token": "11111111111111111111",
+      "price": 0.41,
+      "size_usd": 38.00,
+      "size_shares": 92.68,
+      "side": "BUY",
+      "status": "live-cli"
+    },
+    "status": "OPEN",
+    "opened_at": "2026-04-24T09:15:00+00:00",
+    "exit_reason": null,
+    "exit_price": null,
+    "closed_at": null,
+    "realized_pnl": null
+  },
+  {
+    "market_id": "0xf6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5",
+    "question": "Will Tesla deliver more than 500k vehicles in Q1 2026?",
+    "side": "BUY_NO",
+    "entry_price": 0.65,
+    "target_price": 0.35,
+    "size_usd": 25.00,
+    "votes": [
+      {"action": "BUY_NO", "confidence": 0.72, "agent": "arbitrage"},
+      {"action": "BUY_NO", "confidence": 0.74, "agent": "convergence"},
+      {"action": "HOLD",   "confidence": 0.0,  "agent": "whale_copy"}
+    ],
+    "order": {
+      "client_id": "ghi789jkl0123456",
+      "token": "99999999999999999999",
+      "price": 0.35,
+      "size_usd": 25.00,
+      "size_shares": 71.43,
+      "side": "BUY",
+      "status": "live-cli"
+    },
+    "status": "CLOSED",
+    "opened_at": "2026-04-18T11:00:00+00:00",
+    "exit_reason": "TARGET_HIT",
+    "exit_price": 0.62,
+    "closed_at": "2026-04-21T15:30:00+00:00",
+    "realized_pnl": 19.30
+  },
+  {
+    "market_id": "0xa5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4",
+    "question": "Will SpaceX launch Starship V3 before May 2026?",
+    "side": "BUY_YES",
+    "entry_price": 0.55,
+    "target_price": 0.85,
+    "size_usd": 30.00,
+    "votes": [
+      {"action": "BUY_YES", "confidence": 0.76, "agent": "arbitrage"},
+      {"action": "BUY_YES", "confidence": 0.78, "agent": "convergence"},
+      {"action": "HOLD",    "confidence": 0.0,  "agent": "whale_copy"}
+    ],
+    "order": {
+      "client_id": "mno123pqr4567890",
+      "token": "88888888888888888888",
+      "price": 0.55,
+      "size_usd": 30.00,
+      "size_shares": 54.55,
+      "side": "BUY",
+      "status": "live-cli"
+    },
+    "status": "CLOSED",
+    "opened_at": "2026-04-15T10:00:00+00:00",
+    "exit_reason": "STALE_THESIS",
+    "exit_price": 0.54,
+    "closed_at": "2026-04-16T11:20:00+00:00",
+    "realized_pnl": -0.55
+  },
+  {
+    "market_id": "0xb6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5",
+    "question": "Will the S&P 500 close above 6000 on April 30?",
+    "side": "BUY_YES",
+    "entry_price": 0.48,
+    "target_price": 0.78,
+    "size_usd": 35.00,
+    "votes": [
+      {"action": "BUY_YES", "confidence": 0.79, "agent": "arbitrage"},
+      {"action": "BUY_YES", "confidence": 0.81, "agent": "convergence"},
+      {"action": "HOLD",    "confidence": 0.0,  "agent": "whale_copy"}
+    ],
+    "order": {
+      "client_id": "stu456vwx7890abc",
+      "token": "77777777777777777777",
+      "price": 0.48,
+      "size_usd": 35.00,
+      "size_shares": 72.92,
+      "side": "BUY",
+      "status": "live-cli"
+    },
+    "status": "CLOSED",
+    "opened_at": "2026-04-10T08:00:00+00:00",
+    "exit_reason": "VOLUME_EXIT",
+    "exit_price": 0.71,
+    "closed_at": "2026-04-12T16:45:00+00:00",
+    "realized_pnl": 16.78
+  }
+]
