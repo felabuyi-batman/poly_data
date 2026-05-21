@@ -1,6 +1,10 @@
 #!/bin/bash
-# Bot startup — runs the full pipeline once, in order.
-# For 24/7 operation, schedule with cron or systemd.
+# Bot startup — runs the full ENTRY pipeline once, in order.
+# Exit monitor is split into bot/run_exit.sh so it can run at a faster cadence.
+#
+# Recommended cron:
+#   */15 * * * *  cd /srv/poly_data && bash bot/run.sh      >> bot/state/cron.log 2>&1
+#   */5  * * * *  cd /srv/poly_data && bash bot/run_exit.sh >> bot/state/cron.log 2>&1
 #
 # Pre-req (one-time):
 #   bash bot/setup_vendor.sh          # clones the 3 external repos
@@ -23,13 +27,11 @@ uv run python -m bot.targets
 # 3. scan markets via polymarket-cli / Polymarket-agents → queue.json
 uv run python -m bot.scanner
 
-# 4. brain: 4 checks (Claude API) + Kelly → theses.json
+# 4. brain: 4 checks (LLM) + Kelly → theses.json
 uv run python -m bot.brain
 
 # 5. executor: 3 strategies + consensus → positions.json
+#    (no-ops if bot/state/HALT exists)
 uv run python -m bot.executor
 
-# 6. exit monitor: target / volume / stale triggers
-uv run python -m bot.exit_monitor
-
-echo "$(date -u +%FT%TZ) — bot cycle complete" >> bot/state/log.txt
+echo "$(date -u +%FT%TZ) — bot entry cycle complete" >> bot/state/cron.log

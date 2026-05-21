@@ -13,7 +13,8 @@
     "hours": 84.5,
     "volume": 245000,
     "yes_token": "12345678901234567890",
-    "no_token": "98765432109876543210"
+    "no_token": "98765432109876543210",
+    "ev": 0.27
   },
   {
     "market_id": "0xb2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1",
@@ -29,23 +30,8 @@
     "hours": 168.0,
     "volume": 412000,
     "yes_token": "11111111111111111111",
-    "no_token": "22222222222222222222"
-  },
-  {
-    "market_id": "0xc3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2",
-    "condition_id": "0xe3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2",
-    "question": "Will Lakers make the 2026 NBA playoffs?",
-    "slug": "lakers-2026-playoffs",
-    "category": "sports",
-    "midpoint": 0.78,
-    "estimate": 0.85,
-    "gap": 0.07,
-    "bid_depth": 720.3,
-    "ask_depth": 615.9,
-    "hours": 12.5,
-    "volume": 89000,
-    "yes_token": "33333333333333333333",
-    "no_token": "44444444444444444444"
+    "no_token": "22222222222222222222",
+    "ev": 0.56
   },
   {
     "market_id": "0xd4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3",
@@ -61,7 +47,8 @@
     "hours": 96.0,
     "volume": 178000,
     "yes_token": "55555555555555555555",
-    "no_token": "66666666666666666666"
+    "no_token": "66666666666666666666",
+    "ev": 0.45
   },
   {
     "market_id": "0xe5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4",
@@ -77,6 +64,7 @@
     "hours": 48.0,
     "volume": 134000,
     "yes_token": "77777777777777777777",
-    "no_token": "88888888888888888888"
+    "no_token": "88888888888888888888",
+    "ev": 0.10
   }
 ]

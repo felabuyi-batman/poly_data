@@ -23,10 +23,13 @@ from bot.sizing import kelly_size
 from bot.config import (
     DRY_RUN,
     POSITIONS_JSON,
+    STATE_DIR,
     THESES_JSON,
 )
 from bot.state import state_lock, usable_bankroll
 from bot.strategies import ALL as STRATEGIES
+
+HALT_FILE = STATE_DIR / "HALT"
 
 
 def _client_id(market_id: str, side: str) -> str:
@@ -82,6 +85,9 @@ def place_order(thesis: dict, side: str, size_usd: float, cid: str) -> dict:
 
 
 def main() -> None:
+    if HALT_FILE.exists():
+        print(f"[exec] HALT file present at {HALT_FILE} — skipping new entries")
+        return
     if not THESES_JSON.exists():
         print(f"[exec] {THESES_JSON} not found — run brain first", file=sys.stderr)
         sys.exit(1)

@@ -63,8 +63,9 @@ This is the **only** external call the frontend makes. No auth needed.
 
 ### `state/queue.json`
 ```json
-[{"market_id":"0x...","condition_id":"0x...","question":"...","slug":"...","category":"crypto","midpoint":0.62,"estimate":0.74,"gap":0.12,"bid_depth":1240.5,"ask_depth":980.2,"hours":84.5,"volume":245000,"yes_token":"123","no_token":"456"}]
+[{"market_id":"0x...","condition_id":"0x...","question":"...","slug":"...","category":"crypto","midpoint":0.62,"estimate":0.74,"gap":0.12,"bid_depth":1240.5,"ask_depth":980.2,"hours":84.5,"volume":245000,"yes_token":"123","no_token":"456","ev":0.27}]
 ```
+`ev` = `gap * min(bid_depth, ask_depth) * 0.001` (default sort key). Sports markets are pre-filtered server-side via `SCAN_CATEGORY_BLACKLIST` and will not appear here.
 
 ### `state/theses.json`
 ```json
@@ -140,7 +141,7 @@ This is the **only** external call the frontend makes. No auth needed.
 
 ### `/queue`
 Sortable table of `queue.json`:
-question (truncate, ext-link to `https://polymarket.com/event/{slug}`) | category | midpoint | estimate | **gap (default sort desc, green ≥ 0.07)** | bid+ask depth | hours | volume.
+question (truncate, ext-link to `https://polymarket.com/event/{slug}`) | category | midpoint | estimate | gap (green ≥ 0.07) | **ev (default sort desc)** | bid+ask depth | hours | volume.
 Filter chips: category, hours-bucket (`<24h`, `24-72h`, `72h+`).
 
 ### `/theses`
@@ -283,7 +284,7 @@ export type OrderStatus = "paper" | "live-cli" | "live-agents" | "error";
 export interface SafeRead<T> { data: T; mtime: string | null; stale: boolean; error: string | null; }
 
 export interface Target { wallet: string; trades: number; wins: number; win_rate: number; total_pnl: number; markets_traded: number; }
-export interface QueueItem { market_id: string; condition_id: string; question: string; slug: string; category: string; midpoint: number; estimate: number | null; gap: number | null; bid_depth: number; ask_depth: number; hours: number; volume: number; yes_token: string; no_token: string | null; }
+export interface QueueItem { market_id: string; condition_id: string; question: string; slug: string; category: string; midpoint: number; estimate: number | null; gap: number | null; bid_depth: number; ask_depth: number; hours: number; volume: number; yes_token: string; no_token: string | null; ev: number; }
 export interface Check { signal: CheckSignal; confidence: number; note: string; }
 export interface Decision { action: Side; confidence: number; p_win: number; price_at_decision: number; agreeing_checks: string[]; }
 export interface Thesis { market_id: string; question: string; yes_token: string; no_token: string | null; category: string; midpoint: number; decision: Decision; size_usd: number; checks: Check[]; }

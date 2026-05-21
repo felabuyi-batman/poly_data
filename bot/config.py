@@ -38,6 +38,13 @@ SCAN_MIN_GAP = float(os.getenv("SCAN_MIN_GAP", "0.07"))
 SCAN_MIN_DEPTH_USD = float(os.getenv("SCAN_MIN_DEPTH_USD", "500"))
 SCAN_MIN_HOURS = float(os.getenv("SCAN_MIN_HOURS", "4"))
 SCAN_MAX_HOURS = float(os.getenv("SCAN_MAX_HOURS", "168"))
+# Per the article's "what didn't work" notes: sports markets win-rated 52% and
+# were killed. Comma-separated, case-insensitive substring match on category.
+SCAN_CATEGORY_BLACKLIST = [
+    c.strip().lower()
+    for c in os.getenv("SCAN_CATEGORY_BLACKLIST", "sports").split(",")
+    if c.strip()
+]
 
 # Brain
 BRAIN_MIN_CONFIDENCE = float(os.getenv("BRAIN_MIN_CONFIDENCE", "0.75"))

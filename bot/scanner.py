@@ -25,6 +25,7 @@ from bot.agents_adapter import gamma_client, have_agents_framework
 from bot.config import (
     MIN_MARKET_VOLUME_USD,
     QUEUE_JSON,
+    SCAN_CATEGORY_BLACKLIST,
     SCAN_MAX_HOURS,
     SCAN_MIN_DEPTH_USD,
     SCAN_MIN_GAP,
@@ -71,17 +72,26 @@ def score_market(market: dict, estimate: float | None, midpoint: float,
         return None
     if min(bid, ask) < SCAN_MIN_DEPTH_USD:
         return None
+    category = (market.get("category") or "").lower()
+    if SCAN_CATEGORY_BLACKLIST and any(
+        bad in category for bad in SCAN_CATEGORY_BLACKLIST
+    ):
+        return None
     gap = abs(estimate - midpoint) if estimate is not None else None
     # If we have a real estimate, enforce the gap threshold; otherwise let the
     # market through and let the brain re-score it.
     if gap is not None and gap < SCAN_MIN_GAP:
         return None
+    depth = min(bid, ask)
+    # Per the article: ev = gap * depth * 0.001. Falls back to depth-only when
+    # the LLM estimate is unavailable, so survivors are still rankable.
+    ev = round((gap if gap is not None else SCAN_MIN_GAP) * depth * 0.001, 2)
     return {
         "market_id": market.get("id"),
         "condition_id": market.get("conditionId") or market.get("condition_id"),
         "question": market.get("question"),
         "slug": market.get("slug") or market.get("market_slug"),
-        "category": (market.get("category") or "").lower(),
+        "category": category,
         "midpoint": midpoint,
         "estimate": estimate,
         "gap": round(gap, 4) if gap is not None else None,
@@ -89,6 +99,7 @@ def score_market(market: dict, estimate: float | None, midpoint: float,
         "ask_depth": round(ask, 2),
         "hours": round(hours, 2),
         "volume": float(market.get("volume") or market.get("volumeNum") or 0),
+        "ev": ev,
     }
 
 
@@ -124,7 +135,11 @@ def scan() -> list[dict]:
         survivors.append(scored)
         time.sleep(0.05)
 
-    survivors.sort(key=lambda x: x["bid_depth"] + x["ask_depth"], reverse=True)
+    # Article ranks by expected value (gap × depth). Fall back to depth on ties.
+    survivors.sort(
+        key=lambda x: (x.get("ev") or 0, x["bid_depth"] + x["ask_depth"]),
+        reverse=True,
+    )
     return survivors
 
 
